@@ -40,25 +40,7 @@ export default function EventToProvider() {
   // console.log(list);
   // console.log(list1)
   const [INITIAL_EVENTS, setINITIAL_EVENTS] = useState(null)
-  // עובד טוב בספקים אך לא במשתמשים
-  // currProviderID == currUser ? list :list1
-
-  //   listProviderCategory.map((j, i) => (
-  //     <option key={i} value={j.pccode}>{j.pcname}</option>
-  // ))
-  // .map(event=>{
-  //   return({ providerId: event.provCode, start: event.epdate, userId: event.userId, title: 'תפוס', backgroundColor:event.backgroundColor})
-  // })
-  // getEventsToProviderByID(currProvider).then(h=>{
-  //   console.log(h.data);
-  //  setINITIAL_EVENTS( currProviderID==currUser
-  //   ?h.data
-  //   :h.data.map(event => {
-  //     return ({ providerId: event.provCode, start: event.epdate, userId: event.userId, title: 'תפוס', backgroundColor:event.backgroundColor})
-  //   }))})
-  // dispatch(FillEventsProviderById(INITIAL_EVENTS))
-  //  useState(useSelector(state => state.EventToProviderReducer.listEventProvider));
-  // console.log(INITIAL_EVENTS);
+  
 
   // עובד רק כאשר מרנדרים את הדף שוב
   useEffect(() => {
