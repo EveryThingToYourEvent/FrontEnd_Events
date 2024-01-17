@@ -1,0 +1,103 @@
+body{
+    text-align: center;
+    direction: rtl;
+    
+    /* font-family:; */
+}
+
+.myNav{
+    margin-top: 15%;
+    direction: rtl;
+    
+}
+.jk{
+    background-color: blueviolet;
+}
+#privateArea{
+    display: none;
+}
+#mySideForm{
+    margin-top: 1%; 
+    margin-bottom: 1%;
+    margin-left: 1%;
+    /* margin-right: 0px; */
+    /* padding: 1%; */
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(255, 255, 255);
+    display: inline-block!important;
+    border-radius: 3%;
+    text-align: right!important;
+    
+}
+#mySideForm
+{
+   float: right; 
+   box-shadow: -3px 3px 3px  rgba(204, 190, 236, 0.2);
+   margin: 2%;
+   padding: 1%;
+   margin-top:5%;
+}
+#mySideForm:hover
+{
+    box-shadow: -3px 3px 3px  rgba(7, 7, 7, 0.2);
+
+}
+/* #mySideBar
+{
+    margin-top: 1500px;
+} */
+#myLogin
+{
+    width: 15%;
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;
+   
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 20%;
+    /* max-height: 200px; */
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    display: inline-block!important;
+    margin:2%;
+   
+     /* background-color: rgb(172, 167, 167)!important; */
+  }
+  .card:hover{
+    box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, 0.2);
+    opacity: 90%;
+      
+  }
+  
+  
+  #bigSec
+  {
+      text-align: center;
+  }
+  .myLabel{
+      font-size:small;
+  }
+  .myLink{
+      text-decoration: none;
+      font-size: medium;
+      color: white;
+      margin-right: 2%;
+      margin-left: 2%;
+
+  }
+  #myForm{
+      width: 50%;
+      background-color: white;
+      margin-bottom: 5%; 
+      direction: rtl;
+      text-align: center;
+  }              
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(11, 10, 10, 0.1);
+  }
+  
+  
