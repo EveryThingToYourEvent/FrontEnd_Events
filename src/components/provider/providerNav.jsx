@@ -27,10 +27,10 @@ export const ProviderNav = () => {
                 <div className="collapse navbar-collapse" id="mynavbar">
                     <NavLink className="myLink" to={'/homePage'}>עמוד בית</NavLink>
                     <NavLink className="myLink" to={'/'}>אודות</NavLink>
-                    <NavLink className="myLink" to={'/'}>צור קשר</NavLink>
+                    <NavLink className="myLink" to={'/'}>הרשמה</NavLink>
                     <NavLink className="myLink" to={'./personalCalender'}>לוח שנה</NavLink>
                     <NavLink className="myLink" to={'/'}>צפייה בפידבקים</NavLink>
-                    <NavLink className="myLink" to={'openBusiness'}>פתיחת עסק</NavLink>
+                    {/* <NavLink className="myLink" to={'openBusiness'}>פתיחת עסק</NavLink> */}
                     {/* <div>
                         <select onChange={(e) => setVal(e.target.value)} className="form-control me-2">
                             <option value="0">משתמש</option>

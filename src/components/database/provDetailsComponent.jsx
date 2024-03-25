@@ -8,24 +8,24 @@ import EventToProvider from "./eventToProvider"
 
 export const ProvDetails = () => {
 
-    let d=useDispatch()
+    let d = useDispatch()
 
     const currProviderCode = useSelector(x => x.ProviderReducer.currProvider)
     const opinionsToProvider = useSelector(x => x.OpinionToProviderReducer.listOpinionToProvider)
-        .filter(x => x.provCode == currProviderCode && x.opisShow=="כן")
+        .filter(x => x.provCode == currProviderCode && x.opisShow == "כן")
     // console.log("opinionsToProvider", opinionsToProvider)
     const currUser = useSelector(x => x.UserReducer.userCurrent)
     const [opinionText, setOpinionText] = useState('')
     const [isToShow, setIsToShow] = useState(false)
     // console.log("code",currProviderCode);
-    const [currProviderDetails, setCurrProvider]=useState({});
+    const [currProviderDetails, setCurrProvider] = useState({});
     useEffect(() => {
-        getAllOpinionToProviders().then(x=>d(FillOpinionsToProviders(x.data)))
+        getAllOpinionToProviders().then(x => d(FillOpinionsToProviders(x.data)))
         getProviderByCode(currProviderCode).then(x => {
             setCurrProvider(x.data);
             // console.log("details", currProviderDetails);
             debugger
-    })
+        })
     }, [])
     const handleOpinionChange = (event) => {
         setOpinionText(event.target.value);
@@ -36,20 +36,28 @@ export const ProvDetails = () => {
         setIsToShow(event.target.checked)
     }
 
+    const isLogin = () => {
+        //לבדוק פה האם המשתמש מחובר, אם לא:
+        //"עמ לשלוח חוות דעת עליך להתחבר למערכת"
+        //וגם לבדוק האם השמתמש הנוכחי הוא בעל העסק
+        //אם כן: ספק לא יכול להוסיף חוות דעת לעצמו
+    }
+
     const addOpinion = (event) => {
         event.preventDefault()
         debugger
+        isLogin();
         let opIsShow;
         opIsShow = isToShow ? "כן" : "לא"
         let obj = {
-            opcode:0,
-            opdate: "2010-01-10T00:00:00",
+            opcode: 0,
+            opdate: Date.getdate(),//"2010-01-10T00:00:00",
             optext: opinionText,
             provCode: currProviderDetails.provCode,
-            userId: currUser.userId??"213936636",
-            oppic:".jpg",
-            opisShow:opIsShow,
-            opisDelete:false   
+            userId: currUser.userId ?? "213936636",
+            oppic: ".jpg",
+            opisShow: opIsShow,
+            opisDelete: false
         }
 
         addOpinionToProvider(obj).then(x => d(FillOpinionsToProviders(x.data)))
@@ -60,7 +68,7 @@ export const ProvDetails = () => {
         <div>
             {/* {console.log("details", currProviderDetails)} */}
             <div style={{ display: 'inline-block', width: '18%', margin: '2%', borderStyle: 'ridge', borderWidth: '5px', paddingTop: '15px', backgroundColor: 'white' }}>
-                <h6>קוד בעל עסק {currProviderDetails?.provCode}</h6>
+                <img src={currProviderDetails?.provLogo}></img>
                 <h6>כותרת עסק {currProviderDetails?.provTitle}</h6>
                 <h6> פירוט עסק {currProviderDetails?.provAdvertisementText}</h6>
             </div>
@@ -73,9 +81,9 @@ export const ProvDetails = () => {
                     <h4>{x.opdate}</h4>
                     <h4>{x.optext}</h4>
                 </div>
-                {debugger}
+                { debugger }
             })
-        
+
         }
         <div>
             <label>להוספת חוות דעת</label>

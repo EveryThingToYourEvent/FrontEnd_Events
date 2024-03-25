@@ -17,7 +17,8 @@ import { SetCurrEvent } from "../../redux/action/pCategoriesAction"
 export const Nav = () => {
     let name = useRef()
     let password = useRef()
-    let manager = { name: "hadas", pass: "214089401" }
+    // let manager = { name: "hadas", pass: "214089401" }
+    let manager = { name: "hadas", pass: "1" }
     let users = useSelector(u => u.UserReducer.listUser)
     let providers = useSelector(p => p.ProviderReducer.listProviderConfirm)
     let i
@@ -29,7 +30,7 @@ export const Nav = () => {
     let Dispatch = useDispatch()
     let navigate = useNavigate()
     useEffect(() => {
-        getAllProvider().then(p=>{
+        getAllProvider().then(p => {
             Dispatch(FillProvider(p.data))
         })
         getAllProviderConfirm().then(pc => {
@@ -67,13 +68,13 @@ export const Nav = () => {
                 alert("user")
                 for (index = 0; index < users.length; index++) {
                     const element = users[index];
-                    if (element.userId == currLogin.pass && element.userFname == currLogin.name){
+                    if (element.userId == currLogin.pass && element.userFname == currLogin.name) {
                         Dispatch(FillUserCurrent(element))
                         Dispatch(FillUserCurrentID(element.userId))
                         alert("רשום")
                         // console.log(userCurrent)
                         break;
-                    }      
+                    }
                 }
                 if (index == users.length) {
                     alert("you need to sign up")
@@ -142,14 +143,15 @@ export const Nav = () => {
                 <div className="collapse navbar-collapse" id="mynavbar">
                     <NavLink className="myLink" to={'/homePage'}>עמוד בית</NavLink>
                     <NavLink className="myLink" to={'/'}>אודות</NavLink>
-                    <NavLink onClick={()=>allEvents()} className="myLink" to={'/providersCategories'}>מחלקות</NavLink>
-                    <NavLink className="myLink" to={'/eventType'}>סוגי אירוע</NavLink>
-                    <NavLink className="myLink" to={'/signUp'}>צור קשר</NavLink>
+                    <NavLink onClick={() => allEvents()} className="myLink" to={'/providersCategories'}>כל השרותים</NavLink>
+                    <NavLink className="myLink" to={'/eventType'}>תכנן לי אירוע</NavLink>
+                    <NavLink className="myLink" to={'/signUp'}>הרשמה</NavLink>
+                    <NavLink className="myLink" to={'/openBusiness'}>פתיחת עסק</NavLink>
                     <div>
-                        <select onChange={(e) => setVal(e.target.value)} className="form-control me-2">
+                        {/* <select onChange={(e) => setVal(e.target.value)} className="form-control me-2">
                             <option value="0">משתמש</option>
                             <option value="1">ספק</option>
-                        </select>
+                        </select> */}
                     </div>
 
                     <form style={{ marginRight: '20%' }} className="d-flex">
